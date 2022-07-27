@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: AMS
+  output:
+    ansi:
+      enabled: always
+  jpa:
+    open-in-view: false
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 25MB
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: "jdbc:mariadb://localhost:3306?autoReconnect=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul"
+    username: root
+    password: 1234
+    hikari:
+      max-lifetime: 3000
+      minimum-idle: 1
+      maximum-pool-size: 101
+  sleuth:
+    jdbc:
+      p6spy:
+        enabled: false
+  endpoint:
+    health:
+      show-details: always
+server:
+  tomcat:
+    threads:
+      max: 1000
+    connection-timeout: 630000
+    keep-alive-timeout: 355000
+  port: 7982
+
+feign:
+  client:
+    config:
+      defaut:
+        connectTimeout: 10000
+        readTimeout: 10000
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui/index.html
+    version: 0.0.1
