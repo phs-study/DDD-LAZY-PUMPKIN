@@ -8,10 +8,14 @@
 
 - 이벤트의 source가 된다.
 
-- ![Untitled.png (966×448)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/94382963-999a-428c-b9ec-3d0c3f9e0509/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050221Z&X-Amz-Expires=86400&X-Amz-Signature=20aa81df12b818b53c36c1339bbb21f111f00ecff0e7e51e716df3e6e7ec555c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)특정 Command가 Entity나 Aggregate에 영향을 줘서 Object가 Event를 갖게 된다.
+- ![Untitled.png (966×448)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/94382963-999a-428c-b9ec-3d0c3f9e0509/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050221Z&X-Amz-Expires=86400&X-Amz-Signature=20aa81df12b818b53c36c1339bbb21f111f00ecff0e7e51e716df3e6e7ec555c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+
+- 특정 Command가 Entity나 Aggregate에 영향을 줘서 Object가 Event를 갖게 된다.
 - Aggregate 끼리는 객체 참조하지 않고 id로 참조한다. (tightly coupled 가 아닌, loosely coupled 되어 있다.)
 
-1. ![Untitled.png (742×421)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/32ee2deb-1b85-48a2-bf20-6f7fb9b5ee57/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050235Z&X-Amz-Expires=86400&X-Amz-Signature=d06509bbdf527dd88b946e259aa8b9c8a4fea0239d5bc7bab1b1f96cc3529eae&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)아이템을 장바구니어 넣으라는 명령을 내린다.
+![Untitled.png (742×421)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/32ee2deb-1b85-48a2-bf20-6f7fb9b5ee57/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050235Z&X-Amz-Expires=86400&X-Amz-Signature=d06509bbdf527dd88b946e259aa8b9c8a4fea0239d5bc7bab1b1f96cc3529eae&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+
+1. 아이템을 장바구니어 넣으라는 명령을 내린다.
 2. 명령은 아이템이라는 Aggregate에 영향을 미침.
 3. 이 아이템은 명령에 의해 카트에 들어가게 됨. 
     - Aggregate / Event는 항상 같이 일어난다.
@@ -24,7 +28,9 @@
 
 이 이벤트는 Time Series로 시계열 로 표현한다. (오른쪽으로 갈 수록 나중 일이 된다.)
 
-![Untitled.png (815×455)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d2b84bef-8e07-4013-ba02-f63644669136/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050312Z&X-Amz-Expires=86400&X-Amz-Signature=d41b5cba15c1d9829ee9e09753f8d1ffda4f1b5770ed7684b51812d61e1b33b0&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)Command와 Event도 항상 짝으로 이루어 진다. (경우에 따라 Command가 명확해서 생략하는 경우도 있음)
+![Untitled.png (815×455)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d2b84bef-8e07-4013-ba02-f63644669136/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050312Z&X-Amz-Expires=86400&X-Amz-Signature=d41b5cba15c1d9829ee9e09753f8d1ffda4f1b5770ed7684b51812d61e1b33b0&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+
+Command와 Event도 항상 짝으로 이루어 진다. (경우에 따라 Command가 명확해서 생략하는 경우도 있음)
 
 ![Untitled.png (724×514)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d96d477-bfae-4ad4-bd25-16b242c60179/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050329Z&X-Amz-Expires=86400&X-Amz-Signature=2fb951c3d149d370615f69faf384862f4370be7983bfaa89adefff62cc7a49f9&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
 
