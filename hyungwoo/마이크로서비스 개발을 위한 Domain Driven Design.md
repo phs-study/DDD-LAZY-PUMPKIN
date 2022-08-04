@@ -8,7 +8,7 @@
 
 - 이벤트의 source가 된다.
 
-- ![Untitled.png (966×448)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/94382963-999a-428c-b9ec-3d0c3f9e0509/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050221Z&X-Amz-Expires=86400&X-Amz-Signature=20aa81df12b818b53c36c1339bbb21f111f00ecff0e7e51e716df3e6e7ec555c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+![Untitled.png (966×448)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/94382963-999a-428c-b9ec-3d0c3f9e0509/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050221Z&X-Amz-Expires=86400&X-Amz-Signature=20aa81df12b818b53c36c1339bbb21f111f00ecff0e7e51e716df3e6e7ec555c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
 - 특정 Command가 Entity나 Aggregate에 영향을 줘서 Object가 Event를 갖게 된다.
 - Aggregate 끼리는 객체 참조하지 않고 id로 참조한다. (tightly coupled 가 아닌, loosely coupled 되어 있다.)
 
