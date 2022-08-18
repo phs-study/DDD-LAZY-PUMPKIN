@@ -1,18 +1,21 @@
 # 마이크로서비스 개발을 위한 Domain Driven Design
 
-![Untitled.png (946×262)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c7b51b47-4058-4745-92c4-9c5565947145/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050133Z&X-Amz-Expires=86400&X-Amz-Signature=cfac029e03d30468e598508f9597167941da35eafe7227b4544b39eef2e02e31&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+![image](https://user-images.githubusercontent.com/52458039/185303488-15911b22-1008-476f-a20b-fee9d3b028ef.png)
+
 
 - 과거형/수동형 을 사용한다.
 
-![Untitled.png (942×146)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/9e233003-0495-4570-bf8a-1e0671a7a548/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050206Z&X-Amz-Expires=86400&X-Amz-Signature=b6a6fb46f3ae64a5a3214f4e47bc3b83d1e910131e7117af6710ff0afff0f24f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+![image](https://user-images.githubusercontent.com/52458039/185303569-b1f3ed2a-6a46-4354-8736-023b910f78e4.png)
+
 
 - 이벤트의 source가 된다.
 
-![Untitled.png (966×448)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/94382963-999a-428c-b9ec-3d0c3f9e0509/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050221Z&X-Amz-Expires=86400&X-Amz-Signature=20aa81df12b818b53c36c1339bbb21f111f00ecff0e7e51e716df3e6e7ec555c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+![image](https://user-images.githubusercontent.com/52458039/185303607-b07339ef-a119-4336-abad-89276a17f617.png)
+
 - 특정 Command가 Entity나 Aggregate에 영향을 줘서 Object가 Event를 갖게 된다.
 - Aggregate 끼리는 객체 참조하지 않고 id로 참조한다. (tightly coupled 가 아닌, loosely coupled 되어 있다.)
 
-![Untitled.png (742×421)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/32ee2deb-1b85-48a2-bf20-6f7fb9b5ee57/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050235Z&X-Amz-Expires=86400&X-Amz-Signature=d06509bbdf527dd88b946e259aa8b9c8a4fea0239d5bc7bab1b1f96cc3529eae&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+![image](https://user-images.githubusercontent.com/52458039/185303883-6edbac25-6d26-45a5-82c1-fd03cb50c40b.png)
 
 1. 아이템을 장바구니어 넣으라는 명령을 내린다.
 2. 명령은 아이템이라는 Aggregate에 영향을 미침.
@@ -23,15 +26,15 @@
 
 (Command → Aggregate → Event 의 Flow를 가진다.)
 
-![Untitled.png (754×433)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d7f04367-9322-4e91-93aa-7db4531cc155/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050245Z&X-Amz-Expires=86400&X-Amz-Signature=10fdb612cbe4ba155c36accbdf6a9a423cfaf92a9f00c1cc5a3647c3ae8266c3&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+![image](https://user-images.githubusercontent.com/52458039/185303935-445e5966-de2d-4087-9bf2-6e56aa168d22.png)
 
 이 이벤트는 Time Series로 시계열 로 표현한다. (오른쪽으로 갈 수록 나중 일이 된다.)
 
-![Untitled.png (815×455)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d2b84bef-8e07-4013-ba02-f63644669136/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050312Z&X-Amz-Expires=86400&X-Amz-Signature=d41b5cba15c1d9829ee9e09753f8d1ffda4f1b5770ed7684b51812d61e1b33b0&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+![image](https://user-images.githubusercontent.com/52458039/185303969-361e5211-612b-44ff-bff4-3c2431057f47.png)
 
 Command와 Event도 항상 짝으로 이루어 진다. (경우에 따라 Command가 명확해서 생략하는 경우도 있음)
 
-![Untitled.png (724×514)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4d96d477-bfae-4ad4-bd25-16b242c60179/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050329Z&X-Amz-Expires=86400&X-Amz-Signature=2fb951c3d149d370615f69faf384862f4370be7983bfaa89adefff62cc7a49f9&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+![image](https://user-images.githubusercontent.com/52458039/185304028-e7b8558f-d8b2-4930-88e2-5f6c58b9446f.png)
 
 이렇게 Command-Aggregate-Event가 하나의 묶음으로 진행된다.
 
@@ -39,7 +42,7 @@ Command와 Event도 항상 짝으로 이루어 진다. (경우에 따라 Command
 
 1. Event Storming (Command - Aggregate - Event 단위 정의)
 
-![Untitled.png (608×201)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/769afdb4-edb2-4986-b0a6-ca0d81cceb4e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050438Z&X-Amz-Expires=86400&X-Amz-Signature=c37d7ee265cb4000e5b5d3d5d6481c5d876c4823034c2ea4267f3e5acba82ef3&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+![image](https://user-images.githubusercontent.com/52458039/185304068-93f4f9dd-d5ad-4db4-88b5-d66c8c89dc5a.png)
 
 2. Grouping (Aggregate 그룹핑)
 
@@ -47,11 +50,11 @@ Command와 Event도 항상 짝으로 이루어 진다. (경우에 따라 Command
 
 3. Boris diagram (서비스간 통신)
 
-![Untitled.png (824×657)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8e184085-e9ae-4cf6-8c10-901fba494d2f/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050920Z&X-Amz-Expires=86400&X-Amz-Signature=c06a5937a82ddd5839bed9aaf013f652efd1ad151e193088947eae2b7af9bf3f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+![image](https://user-images.githubusercontent.com/52458039/185304273-8c6d4139-cc7a-4948-8bad-8745269772a4.png)
 
 4. SNAP-E (디테일한 스펙)
 
-![Untitled.png (422×618)](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d60b0797-bf23-4b7d-bcc9-d4cd4e81ac57/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220804%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220804T050929Z&X-Amz-Expires=86400&X-Amz-Signature=d2aa37d3c598c5921777174fc979c4f484ad624cfb419a880cbf0ef6e8a8d8d6&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+![image](https://user-images.githubusercontent.com/52458039/185304314-daf97de0-7fda-422c-9365-fcf87a2a04cb.png)
 
 **Grouping** 에 고려해야할 점
 
