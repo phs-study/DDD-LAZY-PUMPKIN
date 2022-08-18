@@ -24,7 +24,7 @@ https://www.youtube.com/watch?v=F7EnW8dfetU
         - 도메인 이벤트의 발생지(source)
       - Aggregate 
         - 한 개 혹은 그 이상의 entity로 구성
-        - 루즈 커플링(오브젝트 탐색이 불가능, id로 식별)
+        - Aggregate끼리는 루즈 커플링(오브젝트 탐색이 불가능, id로 식별)
       - Command -> Aggregate -> Domain Event 동작 (Aggregate와 Domain Event 사이에서는 원자성을 보존되어야함.)
         1. Add Item to Card
         2. Item
