@@ -5,9 +5,14 @@ public class Order {
     private ShippingInfo shippingInfo;
 
     public void changeShippingInfo(ShippingInfo newShippingInfo) {
-        if(!state.isShippingChangeable()) {
+        if(!isShippingChangeable()) {
             throw new IllegalArgumentException("can't change shipping in " + state);
         }
         this.shippingInfo = newShippingInfo;
+    }
+
+    private boolean isShippingChangeable() {
+        return state == OrderState.PAYMENT_WAITING ||
+                state == OrderState.PREPARING;
     }
 }
