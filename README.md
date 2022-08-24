@@ -1,6 +1,9 @@
 # 학습 목표 
 - DDD 개념을 이해하고 PHS 프로젝트 설계 고도화 할 수 있다.
 
+# 실습용 시나리오
+https://docs.google.com/spreadsheets/d/107I7jb4axgC_vRGmI-AQpIEZyrTsVrFLeBI7QpVKGos/edit?usp=sharing
+
 ### 커리 큘럼
 
 #### 2022/8/3
@@ -12,4 +15,6 @@
 #### 2022/8/18
 [책] 도메인 주도 개발 시작하기 : 1.5장 까지 (+ 요구사항에 따른 설계)
 
-[요구사항] https://docs.google.com/spreadsheets/d/107I7jb4axgC_vRGmI-AQpIEZyrTsVrFLeBI7QpVKGos/edit?usp=sharing
+#### 2022/8/24
+[책] 도메인 주도 개발 시작하기 : 1장 끝까지 (+ 시나리오 기반 스케치 개발)
+
