@@ -1,4 +1,4 @@
-package com.ewha.pumpkin;
+package com.ewha.pumpkin.order;
 
 public class ShippingInfo {
     private String receiverName;
