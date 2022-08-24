@@ -12,4 +12,4 @@
 #### 2022/8/18
 [책] 도메인 주도 개발 시작하기 : 1.5장 까지 (+ 요구사항에 따른 설계)
 
-[요구사항] https://docs.google.com/presentation/d/1B2cuHS1bYHmBpvxMsbAzobqocSL2StuJvX4JkY07HR4/edit?usp=sharing
+[요구사항] https://docs.google.com/spreadsheets/d/107I7jb4axgC_vRGmI-AQpIEZyrTsVrFLeBI7QpVKGos/edit?usp=sharing
