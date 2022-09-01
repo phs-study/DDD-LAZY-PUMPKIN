@@ -18,6 +18,10 @@ spring:
     url: "jdbc:mariadb://localhost:3306?autoReconnect=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul"
     username: root
     password: 1234
+#    url: "jdbc:mariadb://ewha-lazypumpkin.cxi2x1fnex2h.ap-northeast-2.rds.amazonaws.com:3306?autoReconnect=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul"
+#    username: admin
+#    password: rekD9bNhe9d58BK21PwL
+
     hikari:
       max-lifetime: 3000
       minimum-idle: 1
