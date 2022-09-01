@@ -102,6 +102,80 @@ ex : 주문 도메인 규칙 -> "출고 전에 배송지를 변경 할 수 있�
 >코드를 보면 도메인을 더 깊게 이해하게 되므로 코드 자체도 문서화의 대상이 된다.
 
 # 1.6 엔티티와 밸류
+도출한 도메인 모델은 크게 **엔티티(Entity)**와 **밸류(Value)**로 구분할 수 있댜.
+
+## 엔티티(Entity)
+엔티티의 가장 큰 특징은 식별자를 가진다는 것이다. 
+엔티티 객체들은 서로 고유한 식별자를 갖는다.
+
+### 식별자 생성 규칙
+- 특정 규칙에 따라 생성 (ex 주문번호, 운송장번호, 카드번호 -> 회사마다 다름)
+- UUID 나 Nano ID 와 같은 고유 식별자 생성기 사용 (Nano ID 참고 사이트 : https://zelark.github.io/nano-id-cc/)
+- 값을 직접 입력 (중복 입력하지 않도록 사전에 방지가 필요)
+- 일련번호 사용(시퀀스나 DB 의 자동 증가 칼럼 사용)
 
 
-책 46p : 자동 증가 칼럼에서 save 한뒤 바로 getId() 하면 값을 가져올 수 있나?
+## 밸류 타입(Value Type)
+개념적으로 완전한 하나를 표현할 때 사용한다.
+ex) ShippingInfo
+```java
+public class ShippingInfo {
+    // 받는 사람
+    private String receiverName; 
+    private String receiverPhoneNumber;
+    
+    // 주소
+    private String shippingAddress1;
+    private String shippingAddress2;
+    private String shippingZipcode;
+}
+```
+
+이름과 전화번호는 `받는 사람` 이라고 개념적인 하나로 표현할 수 있다.
+주소1, 주소2, 우편번호 는 '배송 정보' 라고 개념적인 하나로 표현할 수 있다.
+
+밸류타입을 꼭 두 개 이상의 데이터를 가져야 하는건 아님. 의미를 명확하게 표현하기 위해 하나의 데이터를 밸류 타입으로 사용하는 경우도 있음.
+ex : Money
+
+```java
+public class Money {
+    private int value;
+
+    public Money(int value) {
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public Money add(Money money) {
+        return new Money(this.value + money.value);
+    }
+
+    public Money multiply(int multiplier) {
+        return new Money(this.value * multiplier);
+    }
+}
+```
+가격이라는 데이터를 Money 라는 객체 밸류타입으로 만들었다.
+이렇게 하면 `돈` 이라는 의미를 명확하게 할 수 있고 밸류 타입을 위한 기능을 추가할 수 있다는 장점이 있다.
+
+밸류 타입은 불변으로 구현하는데, 그 이유는 데이터 변경이 되지 않음을 보장하기에 예기치 못한 문제가 생기지 않는 안전한 코드를 작성할 수 있다.
+>50p 불변이라면 객체의 필드 값을 final 로 해야하는게 아닌가..
+
+## 엔티티의 식별자와 밸류 타입
+엔티티의 식별자를 밸류 타입을 사용할 수 있다. (의미가 더 명확)
+ex : Order 의 식별자 타입을 String -> OrderNo 밸류 타입 사용
+
+## 도메인 모델에 set 메서드 넣지 않기
+도메인 모델에 set 메서드를 추가하는 것은 도메인의 핵심 개념이나 의도를 코드에서 사라지게 한다.
+- 필드 값만 변경하기에 도메인 모델의 상태 변경(도메인 규칙에 따라 다름)과 관련된 모데인 지식이 코드에서 사라진다.
+- 도메인 객체를 생성할 때 온전하지 않은 상태가 될 수 있음. (특정 필드만 변경하므로 도메인 규칙에 따른 수정이 동시에 일어나지 못해서 생기는 문제)
+
+즉, set 메서드를 사용하지 않고, 객체 생성 시점에 생성자를 통해 필요한 데이터를 모두 받아야 한다.
+
+
+# 1.7 도메인 용어와 유비쿼터스 언어
+코드를 도메인 용어로 작성하면 코드의 가독성을 높여서 코드를 분석하고 이해하는 시간을 줄여준다.
+알맞은 도메인 용어를 표현하기 위해 적당한 영단어를 찾는 노력이 필요하다.
