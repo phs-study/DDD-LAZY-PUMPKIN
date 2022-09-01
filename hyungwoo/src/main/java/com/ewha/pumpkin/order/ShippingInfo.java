@@ -1,37 +1,19 @@
 package com.ewha.pumpkin.order;
 
 public class ShippingInfo {
-    private String receiverName;
-    private String receiverPhoneNumber;
-    private String shippingAddress1;
-    private String shippingAddress2;
-    private String shippingZipcode;
+    private Receiver receiver;
+    private Address address;
 
-    public ShippingInfo(String receiverName, String receiverPhoneNumber, String shippingAddress1, String shippingAddress2, String shippingZipcode) {
-        this.receiverName = receiverName;
-        this.receiverPhoneNumber = receiverPhoneNumber;
-        this.shippingAddress1 = shippingAddress1;
-        this.shippingAddress2 = shippingAddress2;
-        this.shippingZipcode = shippingZipcode;
+    public ShippingInfo(Receiver receiver, Address address) {
+        this.receiver = receiver;
+        this.address = address;
     }
 
-    public String getReceiverName() {
-        return receiverName;
+    public Receiver getReceiver() {
+        return receiver;
     }
 
-    public String getReceiverPhoneNumber() {
-        return receiverPhoneNumber;
-    }
-
-    public String getShippingAddress1() {
-        return shippingAddress1;
-    }
-
-    public String getShippingAddress2() {
-        return shippingAddress2;
-    }
-
-    public String getShippingZipcode() {
-        return shippingZipcode;
+    public Address getAddress() {
+        return address;
     }
 }

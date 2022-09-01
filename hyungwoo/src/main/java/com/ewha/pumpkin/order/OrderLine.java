@@ -2,22 +2,22 @@ package com.ewha.pumpkin.order;
 
 public class OrderLine {
     private Product product;
-    private int price;
+    private Money price;
     private int quantity; // (2)
-    private int amounts;
+    private Money amounts;
 
-    public OrderLine(Product product, int price, int quantity, int amounts) {
+    public OrderLine(Product product, Money price, int quantity) {
         this.product = product;
         this.price = price;
         this.quantity = quantity;
-        this.amounts = amounts;
+        this.amounts = calculateAmounts();
     }
 
-    private int calculateAmounts() { // (4)
-        return price * quantity;
+    private Money calculateAmounts() { // (4)
+        return price.multiply(quantity);
     }
 
     public int getAmounts() {
-        return amounts;
+        return amounts.getValue();
     }
 }

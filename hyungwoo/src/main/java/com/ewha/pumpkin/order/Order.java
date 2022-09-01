@@ -3,6 +3,7 @@ package com.ewha.pumpkin.order;
 import java.util.List;
 
 public class Order {
+    private String orderNumber;
     private OrderState state;
     private ShippingInfo shippingInfo;
     private List<OrderLine> orderLines;
@@ -41,7 +42,7 @@ public class Order {
 
     public void changeShippingInfo(ShippingInfo newShippingInfo) {
         verifyNotYetShipped();
-        if(!isShippingChangeable()) {
+        if (!isShippingChangeable()) {
             throw new IllegalArgumentException("can't change shipping in " + state);
         }
         this.shippingInfo = newShippingInfo;
