@@ -18,3 +18,7 @@ https://docs.google.com/spreadsheets/d/107I7jb4axgC_vRGmI-AQpIEZyrTsVrFLeBI7QpVK
 #### 2022/8/24
 [책] 도메인 주도 개발 시작하기 : 1장 끝까지 (+ 시나리오 기반 스케치 개발)
 
+#### 2022/09/02
+[책] 도메인 주도 개발 시작하기 : 2장 끝까지
+- 엔티티 관계도 그려오기
+
