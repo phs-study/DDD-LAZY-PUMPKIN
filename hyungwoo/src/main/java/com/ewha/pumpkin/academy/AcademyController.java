@@ -75,17 +75,21 @@ public class AcademyController {
 
     @PostMapping("/pay")
     void pay() {
-        // 결제 요청 (주문 객체 생성) parent(1) - order(N)
+        // 결제 요청 (주문 객체 생성) parent(1) - Payment(N)
         // 외부 시스템 연결
-        // (외부 api fail 시 결제 실패 알람 전송 후, order 실패 기록 생성)
-        // (외부 api success 시 결제 성공 알람 전송 후, order 성공 기록 생성)
+        // (외부 api fail 시 결제 실패 알람 전송 후, Payment 의 status 실패 업데이트)
+        // (외부 api success 시 결제 성공 알람 전송 후, Payment 의 status 성공 업데이트)
+
+        // -> 기록이 필요하므로 테이블에 row 가 쌓여야 할 듯
     }
 
     @PostMapping("/check")
     void check() {
         // student 가 출석체크시 호출
-        // 내부적으로 출석 체크 (객체 ? 혹은 출석 history 객체 생성)
-        // 외부 시스템을 통해 알람 발송
+        // 내부적으로 출석 체크 (Attendance 객체 생성 학생과 1 : 1, 쌓이지않는다.)
+        // 외부 시스템을 통해 알람 발송 (스케줄러 이용 해서 특정시간마다 보낼수있도록한다. 알람에 대한모델은 없어도되지않을까?)
         // 만약 알람 발송 실패 시, call back or transaction 이 가능하도록 구현
+
+        // -> 기록이 필요하므로 테이블에 row 가 쌓여야 할 듯 (대신 매일 1회씩만 row 가 쌓이도록)
     }
 }
