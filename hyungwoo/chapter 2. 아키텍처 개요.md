@@ -17,6 +17,7 @@
 ex : `응용 계층`은 `도메인 계층`에만 의존해야 하지만, 외부 시스템과의 연동을 위해 더 아래 계층인 `인프라스트럭처 계층`에 의존하기도 한다.
 
 ![image](https://user-images.githubusercontent.com/52458039/188584442-49f75b17-6b77-461e-b47a-898edb87b8b2.png)
+
 계층 구조에 따르면 `도메인`과 `응용 계층`은 룰 엔진과 DB 연동을 위해 위와 같은 `인프라스트럭처 모듈`에 의존하게 된다.
 
 > 룰 엔진? 
@@ -135,6 +136,7 @@ public class DroolsRuleDiscounter implements RuleDiscounter {
 }
 ```
 ![image](https://user-images.githubusercontent.com/52458039/188597083-8fe0b499-036a-4b15-b8a7-d603bece156a.png)
+
 이렇게 DIP 를 적용하면서 더이상 CalculateDiscountService 는 Drools 에 의존하지 않는다.
 (고수준 -> 저수준 의존에서 저수준 -> 고수준 의존으로 바뀌게 된다.)
 
@@ -146,6 +148,7 @@ DIP 를 적용할 때, 하위 기능을 추상화한 인터페이스는 **고수
 
 ## 2.3.2 DIP와 아키텍처
 ![image](https://user-images.githubusercontent.com/52458039/188603091-a38c62c4-4cac-44cf-9942-a057c82b8038.png)
+
 DIP 를 적용하면 인프라스트럭처 영역이 응용 영역과 도메인 영역에 의존하는 구조가 된다.
 
 > DIP 를 항상 적용할 필요는 없다. (일부는 의존시키는게 효과적이다. & 추상화 대상이 잘 떠오르지 않을 수 있음.) 무조건 DIP 를 적용하려고 시도하지 말고 DIP 의 이점을 얻는 수준에서 적용 범위를 검토하자.
