@@ -46,5 +46,7 @@ isSatisfiedBy 메서드의 agg 파라미터는 검사 대상이 되는 객체이
 - @Query("select new ~.~.A(a,b,c,d)) 로 select 절에 new 키워드와 패키지, 생성할 인스턴스 생성자를 지정하여 동적으로 인스턴스화 할 수 있다.
 
 # 5.10 하이버네이트 @Subselect 사용
+- select 쿼리의 결과를 매핑할 테이블처럼 사용한다.
+- @Subselect 로 조회한 @Entity 는 수정할 수 없다.
 
 
